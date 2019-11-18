@@ -1,5 +1,6 @@
 #include "Triangle.h"
-
+Triangle::Triangle() {};//set all points to 0
+Triangle::Triangle(Point a, Point b, Point c) :m_p1(a), m_p2(b), m_p3(c) {};
 Point Triangle::getp1() const { return m_p1; }
 void Triangle::setp1(Point p1) { m_p1 = p1; }
 Point Triangle::getp2() const { return m_p2; }
