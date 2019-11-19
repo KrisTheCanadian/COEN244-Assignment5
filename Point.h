@@ -1,5 +1,4 @@
 #pragma once
-<<<<<<< Updated upstream
 #include "Shape.h"
 class Point :
 	public Shape
@@ -11,13 +10,8 @@ public:
 	void setx(double);
 	double gety() const;
 	void sety(double);
-
+	void print() override;
 private:
 	double m_x_coor;
 	double m_y_coor;
-=======
-class Point
-{
->>>>>>> Stashed changes
 };
-

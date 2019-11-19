@@ -12,8 +12,8 @@ public:
 	void setp1(Point);
 	Point getp2() const;
 	void setp2(Point);
+	void print() override;
 private:
 	Point m_p1;
 	Point m_p2;
 };
-

@@ -12,8 +12,10 @@ public:
 	void setp(Point);
 	double getradius() const;
 	void setradius(double);
+	void print() override;
 private:
 	Point m_p;
 	double m_radius;
 };
+
 

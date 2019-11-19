@@ -7,3 +7,10 @@ Point Triangle::getp2() const { return m_p2; }
 void Triangle::setp2(Point p2) { m_p2 = p2; }
 Point Triangle::getp3() const { return m_p3; }
 void Triangle::setp3(Point p3) { m_p3 = p3; }
+
+void Triangle::print()
+{
+	this->m_p1.print();
+	this->m_p2.print();
+	this->m_p3.print();
+}

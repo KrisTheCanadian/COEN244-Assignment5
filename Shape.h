@@ -1,6 +1,5 @@
 #pragma once
-class Shape //PURE VIRTUAL
+class Shape 
 {
-	virtual void print();
+	virtual void print() = 0;
 };
-
