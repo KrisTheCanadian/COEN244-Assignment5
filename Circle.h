@@ -1,6 +1,7 @@
 #pragma once
 #include "Shape.h"
 #include "Point.h"
+#include <ostream>
 
 class Circle :
 	public Shape
