@@ -1,4 +1,5 @@
 #pragma once
+<<<<<<< Updated upstream
 #include "Shape.h"
 class Point :
 	public Shape
@@ -14,5 +15,9 @@ public:
 private:
 	double m_x_coor;
 	double m_y_coor;
+=======
+class Point
+{
+>>>>>>> Stashed changes
 };
 
