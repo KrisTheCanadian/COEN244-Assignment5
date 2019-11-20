@@ -7,15 +7,16 @@ void Point::setx(double x) { m_x_coor = x; }
 double Point::gety() const { return m_y_coor; }
 void Point::sety(double y) { m_y_coor = y; }
 std::ofstream& Point::save(std::string filename, std::ofstream& ostrm) {
-	ostrm.open(filename, std::ios::out | std::ios::app | std::ios::binary);
+	ostrm.open(filename, ostrm.binary | ostrm.trunc | ostrm.in | ostrm.out);
 	if (!ostrm)
 	{
 		std::cout << "This file cannot be read." << std::endl;
 		exit(1);
 	}
-	ostrm.write(reinterpret_cast<char*>(this), sizeof std::string);
-	ostrm.write(reinterpret_cast<char*>(&m_y_coor), sizeof &m_y_coor);
-	ostrm.write(reinterpret_cast<char*>(&m_x_coor), sizeof &m_x_coor);
+	ostrm << "Point";
+	ostrm << m_y_coor;
+	ostrm << m_x_coor;
+	ostrm.flush(); //dump buffers in file
 	ostrm.close();
 	return ostrm;
 }
