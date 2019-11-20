@@ -13,8 +13,9 @@ int main()
 {
 
 	//Start - Parsing Data - Writing to file//
-	std::string location = "./bin/data.txt";
-	std::ofstream ostrm(location, std::ios::out | std::ios::app | std::ios::binary);
+	std::string location = "file.txt";
+	std::ofstream ostrm;
+//	(location, std::ios::out | std::ios::app | std::ios::binary);
 	//END - Parsing Data - Writing to file//
 
 	Point p1(4.1, 3.2);

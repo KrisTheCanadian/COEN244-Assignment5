@@ -7,7 +7,7 @@ void Point::setx(double x) { m_x_coor = x; }
 double Point::gety() const { return m_y_coor; }
 void Point::sety(double y) { m_y_coor = y; }
 std::ofstream& Point::save(std::string filename, std::ofstream& ostrm) {
-	ostrm.open(filename, std::ios::binary);
+	ostrm.open(filename, std::ios::out | std::ios::app | std::ios::binary);
 	if (!ostrm)
 	{
 		std::cout << "This file cannot be read." << std::endl;
