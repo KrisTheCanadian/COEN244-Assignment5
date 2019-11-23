@@ -6,29 +6,33 @@ double Point::getx() const { return m_x_coor; }
 void Point::setx(double x) { m_x_coor = x; }
 double Point::gety() const { return m_y_coor; }
 void Point::sety(double y) { m_y_coor = y; }
-std::ofstream& Point::save(std::string filename, std::ofstream& ostrm) {
-	ostrm.open(filename, ostrm.binary | ostrm.trunc | ostrm.in);
+
+void Point::save(std::string name, std::string filename, std::ofstream& ostrm) {
+	ostrm.open(filename, ostrm.binary | std::ios::app | ostrm.in); //std::ios::app means end of file
 	if (!ostrm)
 	{
 		std::cout << "This file cannot be read." << std::endl;
 		exit(1);
 	}
-	ostrm << "Point";
+	ostrm << std::setw(8);
+	ostrm << name;
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+	ostrm << "Point"; //typeid(*this).name() returns class point (which is not what we actually want)
+	ostrm.put(' ');
+	ostrm << std::setw(15);
 	ostrm << m_x_coor;
+	ostrm.put(' ');
+	ostrm << std::setw(15);
 	ostrm << m_y_coor;
-	ostrm.flush(); //dump buffers in file
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+	ostrm << std::endl; //dump buffers in file
 	ostrm.close();
-	return ostrm;
 }
+
+
 void Point::print() 
 {
 	std::cout << "(" << this->m_x_coor << "," << this->m_y_coor << ")" << std::endl;
 }
-
-/*std::ofstream& operator<<(std::ofstream& out, Point& point)
-{
-	out << "Point: ";
-	out << point.getx();
-	out << point.gety();
-	return out;
-}*/

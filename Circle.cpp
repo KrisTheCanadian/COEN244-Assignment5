@@ -12,18 +12,35 @@ void Circle::print() {
 	this->m_p.print();
 	std::cout << "Radius: " << this->m_radius << std::endl;
 }
-std::ofstream& Circle::save(std::string filename, std::ofstream& ostrm) {
-	ostrm.open(filename, ostrm.binary | ostrm.trunc | ostrm.in | ostrm.out);
+
+void Circle::save(std::string name, std::string filename, std::ofstream& ostrm) {
+	ostrm.open(filename, ostrm.binary | std::ios::app | ostrm.in); //std::ios::app means end of file
 	if (!ostrm)
 	{
 		std::cout << "This file cannot be read." << std::endl;
 		exit(1);
 	}
-	ostrm << "Circle";
-	ostrm << this->m_p.getx();
-	ostrm << this->m_p.gety();
+	ostrm << std::setw(8);
+	ostrm << name;
+	ostrm.put(' ');
+
+	ostrm << std::setw(15);
+	ostrm << "Circle"; 
+	ostrm.put(' ');
+
+	ostrm << std::setw(15);
+	ostrm << this->getp().getx();
+	ostrm.put(' ');
+
+	ostrm << std::setw(15);
+	ostrm << this->getp().gety();
+	ostrm.put(' ');
+
+	ostrm << std::setw(15);
 	ostrm << this->m_radius;
-	ostrm.flush(); //dump buffers in file
+	ostrm.put(' ');
+
+	ostrm << std::setw(15);
+	ostrm << std::endl; //dump buffers in file
 	ostrm.close();
-	return ostrm;
 }

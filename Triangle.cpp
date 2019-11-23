@@ -14,3 +14,48 @@ void Triangle::print()
 	this->m_p2.print();
 	this->m_p3.print();
 }
+
+void Triangle::save(std::string name, std::string filename, std::ofstream& ostrm) {
+	ostrm.open(filename, ostrm.binary | std::ios::app | ostrm.in); //std::ios::app means end of file
+	if (!ostrm)
+	{
+		std::cout << "This file cannot be read." << std::endl;
+		exit(1);
+	}
+	ostrm << std::setw(8);
+
+	ostrm << name;
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+
+	ostrm << "Triangle"; 
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+
+	ostrm << this->getp1().getx();
+	ostrm << std::setw(15);
+	ostrm.put(' ');
+
+	ostrm << this->getp1().gety();
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+
+	ostrm << this->getp2().getx();
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+
+	ostrm << this->getp2().gety();
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+
+	ostrm << this->getp3().getx();
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+
+	ostrm << this->getp3().gety();
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+
+	ostrm << std::endl; //dump buffers in file
+	ostrm.close();
+}

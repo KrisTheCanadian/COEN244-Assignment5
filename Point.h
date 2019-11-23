@@ -13,7 +13,7 @@ public:
 	double gety() const;
 	void sety(double);
 	void print() override;
-	std::ofstream& save(std::string, std::ofstream&);
+	void save(std::string, std::string, std::ofstream&);
 private:
 	double m_x_coor;
 	double m_y_coor;

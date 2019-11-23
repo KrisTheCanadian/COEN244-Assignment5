@@ -13,8 +13,7 @@ public:
 	Point getp2() const;
 	void setp2(Point);
 	void print() override;
-	std::ofstream& save(std::string, std::ofstream&);
-	friend std::ofstream& operator<<(std::ofstream& out, Point& point);
+	void save(std::string, std::string, std::ofstream&);
 private:
 	Point m_p1;
 	Point m_p2;

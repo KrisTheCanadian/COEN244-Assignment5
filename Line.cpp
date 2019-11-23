@@ -6,18 +6,41 @@ void Line::setp1(Point p1) { m_p1 = p1; }
 Point Line::getp2() const { return m_p2; }
 void Line::setp2(Point p2) { m_p2 = p2; }
 
-std::ofstream& Line::save(std::string filename, std::ofstream& ostrm) {
-	ostrm.open(filename, ostrm.binary | ostrm.trunc | ostrm.in);
+void Line::save(std::string name, std::string filename, std::ofstream& ostrm) {
+	ostrm.open(filename, ostrm.binary | std::ios::app | ostrm.in); //std::ios::app means end of file
 	if (!ostrm)
 	{
 		std::cout << "This file cannot be read." << std::endl;
 		exit(1);
 	}
-	ostrm << "Line";
-	ostrm << m_p1;
-	ostrm.flush(); //dump buffers in file
+	ostrm << std::setw(8);
+
+	ostrm << name;
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+
+	ostrm << "Line"; 
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+
+	ostrm << this->getp1().getx();
+	ostrm << std::setw(15);
+	ostrm.put(' ');
+
+	ostrm << this->getp1().gety();
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+
+	ostrm << this->getp2().getx();
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+
+	ostrm << this->getp2().gety();
+	ostrm.put(' ');
+	ostrm << std::setw(15);
+
+	ostrm << std::endl; //dump buffers in file
 	ostrm.close();
-	return ostrm;
 }
 
 
