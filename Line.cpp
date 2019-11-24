@@ -49,3 +49,13 @@ void Line::print()
 	this->m_p1.print();
 	this->m_p2.print();
 }
+
+bool Line::check(std::string name)
+{
+	if (name == "Line")
+	{
+		return true;
+	}
+	else
+		return false;
+}

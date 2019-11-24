@@ -15,6 +15,7 @@ public:
 	void setradius(double);
 	void print() override;
 	void save(std::string name, std::string filename, std::ofstream& ostrm);
+	bool check(std::string);
 private:
 	Point m_p;
 	double m_radius;

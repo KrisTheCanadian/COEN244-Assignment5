@@ -10,7 +10,7 @@
 #include <iomanip>
 
 
-void init_file(std::string filename, std::ofstream& ostrm) {
+void init_ofile(std::string filename, std::ofstream& ostrm) {
 
 	ostrm.open(filename, ostrm.binary | ostrm.trunc | ostrm.in);
 	if (!ostrm)
@@ -46,12 +46,27 @@ void init_file(std::string filename, std::ofstream& ostrm) {
 	ostrm.close();
 }
 
+void init_ifile(std::string location, std::ifstream& istrm)
+{
+	std::string skip;
+	istrm.open(location, istrm.binary);
+	if (!istrm)
+	{
+		std::cout << "This file cannot be read." << std::endl;
+		exit(1);
+	}
+	for (int i = 0; i < 16; i++)
+	{
+		istrm >> skip;
+	}
+}
+
 int main()
 {
 
 	std::string location = "./data/file.txt";
 	std::ofstream ostrm;
-	init_file(location, ostrm);
+	init_ofile(location, ostrm);
 
 
 	Point p1(4.1, 3.2);
@@ -72,4 +87,73 @@ int main()
 	//TODO: Get a pointer to all existing objects using a data structure
 	//get the list objects and write to file
 	//make sure to do typeof() when storing the data.
+	Shape* shapeArray[7]; //instructions only mention to create a pointer array
+	for (int i = 0; i < 7; i++) // so i assumed it would be of size 7 since we only have 7 objects
+	{
+		shapeArray[i] = nullptr;
+	}
+
+	std::string holder;
+	double holder1;
+	std::ifstream istrm;
+	init_ifile(location, istrm);
+	for (int i = 0; i < 7; i++)
+	{
+		istrm >> holder;
+		if (p.check(holder))
+		{
+			Point* newp = new Point;
+			shapeArray[i] = newp;
+			istrm >> holder1;
+			newp->setx(holder1);
+			istrm >> holder1;
+			newp->sety(holder1);
+		}
+		else if (line.check(holder))
+		{
+			Line* newl = new Line;
+			shapeArray[i] = newl;
+			istrm >> holder1;
+			newl->getp1.setp1(holder1);
+			istrm >> holder1;
+			newl->getp1.setp2(holder1);
+			istrm >> holder1;
+			newl->getp2.setp1(holder1);
+			istrm >> holder1;
+			newl->getp2.setp2(holder1);
+		}
+		else if (triangle.check(holder))
+		{
+			Triangle* newt = new Triangle;
+			shapeArray[i] = newt;
+			istrm >> holder1;
+			newt->getp1.setp1(holder1);
+			istrm >> holder1;
+			newt->getp1.setp2(holder1);
+			istrm >> holder1;
+			newt->getp2.setp1(holder1);
+			istrm >> holder1;
+			newt->getp2.setp2(holder1);
+			istrm >> holder1;
+			newt->getp3.setp1(holder1);
+			istrm >> holder1;
+			newt->getp3.setp2(holder1);
+		}
+		else if (circle.check(holder))
+		{
+			Circle* newc = new Circle;
+			shapeArray[i] = newc;
+			istrm >> holder1;
+			newc->getp.setp1(holder1);
+			istrm >> holder1;
+			newc->getp.setp2(holder1);
+			istrm >> holder1;
+			newc->setradius(holder1);
+		}
+		istrm >> holder;
+	}
+	for (int i = 0; i < 7; i++)
+	{
+		
+	}
 }

@@ -36,3 +36,13 @@ void Point::print()
 {
 	std::cout << "(" << this->m_x_coor << "," << this->m_y_coor << ")" << std::endl;
 }
+
+bool Point::check(std::string name)
+{
+	if (name == "Circle")
+	{
+		return true;
+	}
+	else
+		return false;
+}

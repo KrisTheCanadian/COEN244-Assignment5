@@ -14,6 +14,7 @@ public:
 	void sety(double);
 	void print() override;
 	void save(std::string, std::string, std::ofstream&);
+	bool check(std::string);
 private:
 	double m_x_coor;
 	double m_y_coor;

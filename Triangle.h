@@ -16,6 +16,7 @@ public:
 	void setp3(Point);
 	void print() override;
 	void save(std::string, std::string, std::ofstream&);
+	bool check(std::string);
 private:
 	Point m_p1;
 	Point m_p2;

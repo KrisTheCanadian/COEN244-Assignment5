@@ -59,3 +59,13 @@ void Triangle::save(std::string name, std::string filename, std::ofstream& ostrm
 	ostrm << std::endl; //dump buffers in file
 	ostrm.close();
 }
+
+bool Triangle::check(std::string name)
+{
+	if (name == "Triangle")
+	{
+		return true;
+	}
+	else
+		return false;
+}
