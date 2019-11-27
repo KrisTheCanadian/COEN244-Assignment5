@@ -8,11 +8,12 @@ class Point :
 public:
 	Point();
 	Point(double, double);
+	virtual ~Point();
 	double getx() const;
 	void setx(double);
 	double gety() const;
 	void sety(double);
-	void print() override;
+	void print() ;
 	void save(std::string, std::string, std::ofstream&);
 	bool check(std::string);
 private:

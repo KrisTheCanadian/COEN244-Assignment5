@@ -2,8 +2,9 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-Circle::Circle() :m_radius(0) {};//need to set point to 0
+Circle::Circle() :m_p(Point()), m_radius(0) {};//need to set point to 0
 Circle::Circle(Point p, double radius) :m_p(p), m_radius(radius) {};
+Circle::~Circle() {}
 Point Circle::getp() const { return m_p;}
 void Circle::setp(Point p) { m_p = p;}
 double Circle::getradius() const { return m_radius;}
@@ -47,7 +48,7 @@ void Circle::save(std::string name, std::string filename, std::ofstream& ostrm) 
 
 bool Circle::check(std::string name)
 {
-	if (name == "Triangle")
+	if (name == "Circle")
 	{
 		return true;
 	}

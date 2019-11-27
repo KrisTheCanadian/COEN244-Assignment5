@@ -87,12 +87,12 @@ int main()
 	//TODO: Get a pointer to all existing objects using a data structure
 	//get the list objects and write to file
 	//make sure to do typeof() when storing the data.
-	Shape* shapeArray[7]; //instructions only mention to create a pointer array
+	Shape** shapeArray = new Shape*[7]; //instructions only mention to create a pointer array
 	for (int i = 0; i < 7; i++) // so i assumed it would be of size 7 since we only have 7 objects
 	{
 		shapeArray[i] = nullptr;
 	}
-
+	
 	std::string holder;
 	double holder1;
 	std::ifstream istrm;
@@ -114,46 +114,47 @@ int main()
 			Line* newl = new Line;
 			shapeArray[i] = newl;
 			istrm >> holder1;
-			newl->getp1.setp1(holder1);
+			newl->getp1().setx(holder1);
 			istrm >> holder1;
-			newl->getp1.setp2(holder1);
+			newl->getp1().sety(holder1);
 			istrm >> holder1;
-			newl->getp2.setp1(holder1);
+			newl->getp2().setx(holder1);
 			istrm >> holder1;
-			newl->getp2.setp2(holder1);
+			newl->getp2().sety(holder1);
 		}
 		else if (triangle.check(holder))
 		{
 			Triangle* newt = new Triangle;
 			shapeArray[i] = newt;
 			istrm >> holder1;
-			newt->getp1.setp1(holder1);
+			newt->getp1().setx(holder1);
 			istrm >> holder1;
-			newt->getp1.setp2(holder1);
+			newt->getp1().sety(holder1);
 			istrm >> holder1;
-			newt->getp2.setp1(holder1);
+			newt->getp2().setx(holder1);
 			istrm >> holder1;
-			newt->getp2.setp2(holder1);
+			newt->getp2().sety(holder1);
 			istrm >> holder1;
-			newt->getp3.setp1(holder1);
+			newt->getp3().setx(holder1);
 			istrm >> holder1;
-			newt->getp3.setp2(holder1);
+			newt->getp3().sety(holder1);
 		}
 		else if (circle.check(holder))
 		{
 			Circle* newc = new Circle;
 			shapeArray[i] = newc;
 			istrm >> holder1;
-			newc->getp.setp1(holder1);
+			newc->getp().setx(holder1);
 			istrm >> holder1;
-			newc->getp.setp2(holder1);
+			newc->getp().sety(holder1);
 			istrm >> holder1;
 			newc->setradius(holder1);
 		}
 		istrm >> holder;
 	}
+
 	for (int i = 0; i < 7; i++)
 	{
-		
+		shapeArray[i]->print();
 	}
 }

@@ -8,11 +8,12 @@ class Line :
 public:
 	Line();
 	Line(Point, Point);
+	virtual ~Line();
 	Point getp1() const;
 	void setp1(Point);
 	Point getp2() const;
 	void setp2(Point);
-	void print() override;
+	void print();
 	void save(std::string, std::string, std::ofstream&);
 	bool check(std::string);
 private:

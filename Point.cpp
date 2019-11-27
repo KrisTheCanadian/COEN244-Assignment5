@@ -2,6 +2,7 @@
 
 Point::Point():m_x_coor(0), m_y_coor(0) {};
 Point::Point(double a, double b):m_x_coor(a), m_y_coor(b) {};
+Point::~Point() {};
 double Point::getx() const { return m_x_coor; }
 void Point::setx(double x) { m_x_coor = x; }
 double Point::gety() const { return m_y_coor; }
@@ -39,7 +40,7 @@ void Point::print()
 
 bool Point::check(std::string name)
 {
-	if (name == "Circle")
+	if (name == "Point")
 	{
 		return true;
 	}

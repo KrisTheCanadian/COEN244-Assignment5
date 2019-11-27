@@ -9,11 +9,12 @@ class Circle :
 public:
 	Circle();
 	Circle(Point, double);
+	virtual ~Circle() {};
 	Point getp() const;
 	void setp(Point);
 	double getradius() const;
 	void setradius(double);
-	void print() override;
+	void print();
 	void save(std::string name, std::string filename, std::ofstream& ostrm);
 	bool check(std::string);
 private:

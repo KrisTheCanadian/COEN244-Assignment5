@@ -2,7 +2,10 @@
 #include <fstream>
 #include <iomanip>
 
+
 class Shape 
 {
-	virtual void print() = 0;
+public:
+	virtual ~Shape();
+	virtual void print();
 };
