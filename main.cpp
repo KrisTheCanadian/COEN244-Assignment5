@@ -84,11 +84,9 @@ int main()
 	triangle.save("triangle", location, ostrm);
 	p.save("p", location, ostrm);
 	circle.save("circle", location, ostrm);
-	//TODO: Get a pointer to all existing objects using a data structure
-	//get the list objects and write to file
-	//make sure to do typeof() when storing the data.
-	Shape** shapeArray = new Shape*[7]; //instructions only mention to create a pointer array
-	for (int i = 0; i < 7; i++) // so i assumed it would be of size 7 since we only have 7 objects
+
+	Shape** shapeArray = new Shape*[7]; 
+	for (int i = 0; i < 7; i++) 
 	{
 		shapeArray[i] = nullptr;
 	}
@@ -164,7 +162,7 @@ int main()
 		}
 		istrm >> holder;
 	}
-
+	istrm.close();
 	for (int i = 0; i < 7; i++)
 	{
 		shapeArray[i]->print();
