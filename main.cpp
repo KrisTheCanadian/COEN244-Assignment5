@@ -113,40 +113,52 @@ int main()
 		{
 			Line* newl = new Line;
 			shapeArray[i] = newl;
+			Point q1 = newl->getp1();
 			istrm >> holder1;
-			newl->getp1().setx(holder1);
+			q1.setx(holder1);
 			istrm >> holder1;
-			newl->getp1().sety(holder1);
+			q1.sety(holder1);
+			newl->setp1(q1);
+			q1 = newl->getp2();
 			istrm >> holder1;
-			newl->getp2().setx(holder1);
+			q1.setx(holder1);
 			istrm >> holder1;
-			newl->getp2().sety(holder1);
+			q1.sety(holder1);
+			newl->setp2(q1);
 		}
 		else if (triangle.check(holder))
 		{
 			Triangle* newt = new Triangle;
 			shapeArray[i] = newt;
+			Point q1 = newt->getp1();
 			istrm >> holder1;
-			newt->getp1().setx(holder1);
+			q1.setx(holder1);
 			istrm >> holder1;
-			newt->getp1().sety(holder1);
+			q1.sety(holder1);
+			newt->setp1(q1);
+			q1 = newt->getp2();
 			istrm >> holder1;
-			newt->getp2().setx(holder1);
+			q1.setx(holder1);
 			istrm >> holder1;
-			newt->getp2().sety(holder1);
+			q1.sety(holder1);
+			newt->setp2(q1);
+			q1 = newt->getp3();
 			istrm >> holder1;
-			newt->getp3().setx(holder1);
+			q1.setx(holder1);
 			istrm >> holder1;
-			newt->getp3().sety(holder1);
+			q1.sety(holder1);
+			newt->setp3(q1);
 		}
 		else if (circle.check(holder))
 		{
 			Circle* newc = new Circle;
 			shapeArray[i] = newc;
+			Point q1 = newc->getp();
 			istrm >> holder1;
-			newc->getp().setx(holder1);
+			q1.setx(holder1);
 			istrm >> holder1;
-			newc->getp().sety(holder1);
+			q1.sety(holder1);
+			newc->setp(q1);
 			istrm >> holder1;
 			newc->setradius(holder1);
 		}

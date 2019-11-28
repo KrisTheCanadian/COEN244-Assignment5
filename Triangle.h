@@ -9,11 +9,11 @@ public:
 	Triangle();
 	Triangle(Point, Point, Point);
 	virtual ~Triangle();
-	Point getp1() const;
+	Point getp1();
 	void setp1(Point);
-	Point getp2() const;
+	Point getp2();
 	void setp2(Point);
-	Point getp3() const;
+	Point getp3();
 	void setp3(Point);
 	void print();
 	void save(std::string, std::string, std::ofstream&);

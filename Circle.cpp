@@ -10,6 +10,7 @@ void Circle::setp(Point p) { m_p = p;}
 double Circle::getradius() const { return m_radius;}
 void Circle::setradius(double radius) { m_radius = radius;}
 void Circle::print() {
+	std::cout << "[Circle] Point:";
 	this->m_p.print();
 	std::cout << "Radius: " << this->m_radius << std::endl;
 }

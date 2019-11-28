@@ -9,7 +9,7 @@ class Circle :
 public:
 	Circle();
 	Circle(Point, double);
-	virtual ~Circle() {};
+	virtual ~Circle();
 	Point getp() const;
 	void setp(Point);
 	double getradius() const;

@@ -47,7 +47,9 @@ void Line::save(std::string name, std::string filename, std::ofstream& ostrm) {
 
 void Line::print()
 {
+	std::cout << "[Line] First Point: ";
 	this->m_p1.print();
+	std::cout << "Second Point: ";
 	this->m_p2.print();
 }
 
